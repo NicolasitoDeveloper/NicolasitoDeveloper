@@ -17,14 +17,52 @@
       <h2>Calculate the area and perimeter of a square</h2>
       <form action="">
          <label for="imputSquare">
-            Type the measure of each side of the square:
+            Input the measure of each side of the square:
          </label>
-            <input id="imputSquare" type="number"/>
-            <button type="button" onclick="calculatePerimeterOfSquare()">
-               Perimeter
+         <br> Side <input id="imputSquare" type="number"/>
+         <button type="button" onclick="calculateAreaOfSquare()">
+            Area
+         </button>
+         <button type="button" onclick="calculatePerimeterOfSquare()">
+            Perimeter
+          </button>
+      </form>
+   </section>
+   <section>
+      <h2>Calculate the height, area and perimeter of an Isosceles Triangle</h2>
+      <form action="">
+         <label for="imputTriangle">
+            Input the measures of the two sides and the base of an Isosceles tringle:
+         </label>
+           <br> Side a <input id="imputTriangle1" type="number"/>
+            Side b <input id="imputTriangle2" type="number"/>
+            Base &nbsp <input id="imputTriangle3" type="number"/>
+            <button type="button" onclick="calculateHeightOfTriangle()">
+               Height
             </button>
-            <button type="button" onclick="calculateAreaOfSquare()">
+            <button type="button" onclick="calculateAreaOfTriangle()">
                Area
+            </button>
+            <button type="button" onclick="calculatePerimeterOfTriangle()">
+               Perimeter
+            </button>     
+      </form>
+   </section>
+   <section>
+      <h2>Calculate the diameter, area and perimeter of a Circle</h2>
+      <form action="">
+         <label for="imputCircle">
+            Input the measure of the radius of the circle:
+         </label>
+           <br> Radius <input id="imputCircle" type="number"/>
+            <button type="button" onclick="calculateDiameterOfCircle()">
+               Diameter
+            </button>
+            <button type="button" onclick="calculateAreaOfCircle()">
+               Area
+            </button>
+            <button type="button" onclick="calculatePerimeterOfCircle()">
+               Perimeter
             </button>
       </form>
    </section>
