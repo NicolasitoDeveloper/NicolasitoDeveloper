@@ -1,58 +1,58 @@
 //Square
 console.group("Square");
 
-const sideOfSquare = 5;
-console.log("The sides of the square measure: " + sideOfSquare + "cm");
+//const sideOfSquare = 5;
 
-const perimeterOfSquare = sideOfSquare * 4;
-console.log("The perimeter of the square is: " + perimeterOfSquare + "cm");
+function perimeterOfSquare (side) {
+    return side * 4;
+} 
 
-const areaOfSquare = sideOfSquare * sideOfSquare;
-console.log("The area of the square is: " + areaOfSquare+ "cm²");
+//const areaOfSquare = sideOfSquare * sideOfSquare;
+
+function areaOfSquare (side) {
+    return side * side;
+} 
 
 console.groupEnd();
 
 //Triangle
 console.group("Triangle");
 
-const sideOfTriangle1 = 6;
-const sideOfTriangle2 = 6;
-const baseOfTriangle = 4;
-const heightOfTriangle = 5.5;
+//const sideOfTriangle1 = 6;
+//const sideOfTriangle2 = 6;
+//const baseOfTriangle = 4;
+//const heightOfTriangle = 5.5;
 
-console.log("The sides of the triangle measure: " 
-+ sideOfTriangle1 + "cm, " 
-+ sideOfTriangle2 + "cm and " 
-+ baseOfTriangle + "cm");
 
-console.log("The height of the triangle is: " + heightOfTriangle + "cm");
+function perimeterOfTriangle (sideOfTriangle1, sideOfTriangle2, baseOfTriangle) {
+    return sideOfTriangle1 + sideOfTriangle2 + baseOfTriangle;
+}
 
-const perimeterOfTriangle = sideOfTriangle1 + sideOfTriangle2 + baseOfTriangle;
-console.log("The perimeter of the triangle is: " + perimeterOfTriangle + "cm");
-
-const areaOfTriangle = (baseOfTriangle * heightOfTriangle) / 2;
-console.log("The area of the triangle is: " + areaOfTriangle+ "cm²");
+function areaOfTriangle (baseOfTriangle, heightOfTriangle) {
+    return (baseOfTriangle * heightOfTriangle) / 2;
+} 
 
 console.groupEnd();
 
 //Circle
 console.group("Circle");
 
-const radiusOfCircle = 4;
-console.log("The radius of the circle is: " + radiusOfCircle + "cm");
+//const radiusOfCircle = 4;
 
-const diameterOfCircle = radiusOfCircle * 2;
-console.log("The diameter of the circle is: " + diameterOfCircle + "cm");
+function diameterOfCircle (radiusOfCircle) {
+    return radiusOfCircle * 2;
+} 
 
 const PI = Math.PI;
-console.log("PI is: " + PI);
 
-const perimeterOfCircle = diameterOfCircle * PI;
-console.log("The perimeter of the circle is: " + perimeterOfCircle + "cm");
+function perimeterOfCircle (radiusOfCircle) {
+    const diameter = diameterOfCircle (radiusOfCircle);
+    return diameter * PI;
+}
 
-const areaOfCircle = (radiusOfCircle * radiusOfCircle) * PI;
-console.log("The area of the circle is: " + areaOfCircle + "cm²");
-
+function areaOfCircle (radiusOfCircle) {
+    return (radiusOfCircle * radiusOfCircle) * PI;
+} 
 
 console.groupEnd();
 
