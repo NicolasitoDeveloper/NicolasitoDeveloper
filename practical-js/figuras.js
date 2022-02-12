@@ -56,3 +56,19 @@ function areaOfCircle (radiusOfCircle) {
 
 console.groupEnd();
 
+function calculatePerimeterOfSquare (){
+   const imputSq = document.getElementById("imputSquare");
+   const valueSq = imputSq.value;
+  
+   const perimeterSq =  perimeterOfSquare (valueSq) 
+   alert(perimeterSq)
+}
+
+function calculateAreaOfSquare () {
+    const imputSq = document.getElementById("imputSquare");
+    const valueSq = imputSq.value;
+   
+    const areaSq =  areaOfSquare (valueSq) 
+    alert(areaSq);
+ }
+ 
