@@ -1,6 +1,6 @@
-## Taller #1: Figuras geométricas
+## Workshop #1: Geometric figures
 
--Primer paso: Definir las fórmulas
--Segundo paso:  Implementar las fórmulas en JavaScript
--Tercer paso: Crear funciones
--Cuarto paso: Integrar JS con HTML
+-1st step: Define the formulas
+-2nd step:  Implement the formulas in JavaScript
+-3rd step: Create functions
+-4th step: Integrate JS with HTML
