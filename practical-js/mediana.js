@@ -1,3 +1,10 @@
+//function compare (a, b) {return a - b}
+//array.sort(compare);
+//array.sort((a, b)=> a - b);
+
+
+function compare (a, b) {return a - b}
+
 function calculateMean (list) {
     let sum1 = list.reduce(
         function (pValue = 0, nValue) {
@@ -13,6 +20,7 @@ function addNumber () {
     const addNumber1 = document.getElementById("inputNumber");
     const number1 = parseInt(addNumber1.value);
     list1.push(number1);
+    list1.sort(compare);
     printList.innerText = list1;   
 }
 
@@ -38,6 +46,6 @@ function calculateMedian (){
    }
    else {
        median1 = list1[halfOfTheList];
-       printMedian.innerText = median1;   
+       printMedian.innerText = "The median of the above list of numbers is: " + median1;   
    }
 }
