@@ -8,8 +8,23 @@
 </head>
 <body>
     
-    <h1>Mean</h1>
+    <section>
+        <h2>Calculate the mean from a list of numbers</h2>
 
+        <form action="">
+            <label for="inputNumber"> Input the number you want to add to the list </label>
+                <input id="inputNumber" type="number">     
+              <button type="button" onclick="addNumber()">
+                Add number
+              </button>
+              <button type="button" onclick="calculateMean()">
+                Calculate the mean
+              </button>
+              <p id="printList"></p>   
+              <p id="printMean"></p>           
+        
+        </form>
+    </section>
     <script src="./promedio.js"></script>
 </body>
 </html>
