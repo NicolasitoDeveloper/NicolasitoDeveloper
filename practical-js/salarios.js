@@ -9,7 +9,7 @@ colombia.push ({
 });
 colombia.push ({
     name: "Sonia",
-    salary: 70000,
+    salary: 700,
 });
 colombia.push ({
     name: "Hector",
