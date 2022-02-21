@@ -26,11 +26,11 @@
       const video = document.querySelector("video");
       const button = document.querySelector("button");
 
-      function mediaPlayer (config) {
+      function MediaPlayer (config) {
         this.media = config.element
       }
 
-      mediaPlayer.prototype.play = function () {
+      MediaPlayer.prototype.play = function () {
         if (this.media.paused) {
           this.media.play();
         }
@@ -38,7 +38,7 @@
           this.media.pause();
         }
       }
-      const player =  new mediaPlayer ({element: video});
+      const player =  new MediaPlayer ({element: video});
       button.onclick = () => player.play();
     </script>
   </body>
