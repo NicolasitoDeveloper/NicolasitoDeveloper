@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <title>PlatziMediaPlayer.js</title>
     <link
@@ -21,5 +22,19 @@
 
       <button>Play/Pause</button>
     </main>
+    <script>
+      const video = document.querySelector("video");
+      const button = document.querySelector("button");
+
+      function mediaPlayer (config) {
+        this.media = config.element
+      }
+
+      mediaPlayer.prototype.play = function () {
+        this.media.play();
+      }
+      const player =  new mediaPlayer ({element: video});
+      button.onclick = () => player.play();
+    </script>
   </body>
 </html>
