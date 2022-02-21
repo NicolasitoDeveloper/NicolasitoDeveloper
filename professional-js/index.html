@@ -31,7 +31,12 @@
       }
 
       mediaPlayer.prototype.play = function () {
-        this.media.play();
+        if (this.media.paused) {
+          this.media.play();
+        }
+        else {
+          this.media.pause();
+        }
       }
       const player =  new mediaPlayer ({element: video});
       button.onclick = () => player.play();
