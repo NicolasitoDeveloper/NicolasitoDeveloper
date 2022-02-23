@@ -4,21 +4,56 @@
   </head>
 
   <body>
-    <a href="/ejercicios/">Go back</a>
-    <p><em>Abre la consola</em></p>
+    <a href="/workshops/">Go back</a>
+    <p><em>Open the console</em></p>
 
     <h1>
-      <code>this</code> se refiere a un objeto. Ese objeto es el que actualmente
-      está ejecutando un pedazo de código.
+      <code>this</code> Refers to and object. This object is the one that is executing that part of the code.
     </h1>
 
     <script>
-      // this en el scope global
-      // this en el scope de una función
-      // this en el scope de una función en strict mode
-      // this en el contexto de un objeto
-      // this cuando sacamos a una función de un objeto
-      // this en el contexto de una "clase"
+      // this global scope
+      console.log(`this: ${this}`);
+
+      // this function scope
+      function whoIsThis() {
+        return this;
+      }
+
+      console.log(`whoIsThis(): ${whoIsThis()}`);
+
+      // this function scope - strict mode
+      function whoIsThisStrict() {
+        "use strict";
+        return this;
+      }
+
+      console.log(`whoIsThisStrict(): ${whoIsThisStrict()}`);
+
+      // this object context
+      const person = {
+        name: "Nicolas",
+        saludar: function (){
+          console.log(`Hi, I'm ${this.name}`);
+        }
+      }
+      person.saludar();
+
+      // this function out of and object
+      const action = person.saludar;
+      action();
+
+      // this "class" context
+      function Person (name) {
+        this.name = name;
+      }
+
+      Person.prototype.saludar = function () {
+        console.log(`My name is ${this.name}`);
+      }
+
+      const angela = new Person("Angela");
+      angela.saludar();
     </script>
   </body>
 </html>
