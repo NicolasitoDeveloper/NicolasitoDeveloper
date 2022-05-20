@@ -32,7 +32,7 @@ async function main() {
   await speak();
   await speak();
   await goodbyes(my_name);
-  console.log("Terminating");
+  console.lo("Terminating");
 }
 
 console.log("Initializing");
