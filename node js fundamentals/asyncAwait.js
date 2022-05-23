@@ -11,8 +11,8 @@ async function speak(my_name) {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
       console.log("Bla bla bla bla...");
-      // resolve(my_name);
-      resolve("REJECTED");
+      resolve(my_name);
+      // resolve("REJECTED");
     }, 1000);
   });
 }
@@ -32,7 +32,7 @@ async function main() {
   await speak();
   await speak();
   await goodbyes(my_name);
-  console.log("Terminating");
+  console.log("Terminated");
 }
 
 console.log("Initializing");

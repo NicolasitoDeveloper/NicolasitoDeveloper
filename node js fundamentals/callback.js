@@ -1,7 +1,7 @@
 function greetings(first_name, myCallback) {
   setTimeout(function () {
     console.log("Hi " + first_name);
-    myCallback();
+    myCallback(first_name);
   }, 1000);
 }
 
@@ -13,8 +13,8 @@ function goodbyes(first_name, anotherCallback) {
 }
 
 console.log("Initializing process...");
-greetings("Nicolas", function () {
-  goodbyes("Nicolas", function () {
+greetings("Nicolas", function (first_name) {
+  goodbyes(first_name, function () {
     console.log("Terminating process...");
   });
 });

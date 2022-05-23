@@ -8,38 +8,37 @@ function greetings(my_name) {
 }
 
 function speak(my_name) {
-    return new Promise ((resolve, reject) => {
-        setTimeout(function () {
-            console.log("Bla bla bla bla...");
-            // resolve(my_name);
-            reject("REJECTED");
-          }, 1000);
-    });
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      console.log("Bla bla bla bla...");
+      resolve(my_name);
+      // reject("REJECTED");
+    }, 1000);
+  });
 }
 
 function goodbyes(my_name) {
-    return new Promise ((resolve, reject) => {
-        setTime
-        out(function () {
-            console.log("Goodbye", my_name);
-            resolve();
-          }, 1000);
-    });
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      console.log("Goodbye", my_name);
+      resolve();
+    }, 1000);
+  });
 }
 
 //---
- 
+
 console.log("Initializing proces...");
 greetings("Nicolas")
-    .then (speak)
-    .then (speak)
-    .then (speak)
-    .then (goodbyes)
-    .then((nombre) => {
-        console.log("Terminating process...");
+  .then(speak)
+  .then(speak)
+  .then(speak)
+  .then(goodbyes)
+  .then(() => {
+    console.log("Process terminated.");
 
-    })
-    .catch(error => {
-        console.error("Critical error: ");
-        console.error(error);
-    })
+  })
+  .catch(error => {
+    console.error("Critical error: ");
+    console.error(error);
+  })

@@ -21,10 +21,10 @@ function goodbyes(my_name, anotherCallback) {
 }
 
 //Recursive functions, calling "conversation" inside of it.
-function conversacion(my_name, times, callback) {
+function conversation(my_name, times, callback) {
     if (times > 0) {
         speak(function () {
-            conversacion(my_name, --times, callback);
+            conversation(my_name, --times, callback);
         })
     } else {
         goodbyes(my_name, callback);
@@ -35,7 +35,7 @@ function conversacion(my_name, times, callback) {
 
 console.log('Initializing process......');
 greetings('Nicolas', function (my_name) {
-    conversacion(my_name, 10, function() {
+    conversation(my_name, 5, function() {
         console.log('Process terminated');
     });
 });
