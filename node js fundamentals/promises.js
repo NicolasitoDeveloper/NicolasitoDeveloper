@@ -1,6 +1,6 @@
 function greetings(my_name) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
+  return new Promise( (resolve, reject) => {
+    setTimeout( () => {
       console.log("Hi, " + my_name);
       resolve(my_name);
     }, 1500);
@@ -9,7 +9,7 @@ function greetings(my_name) {
 
 function speak(my_name) {
   return new Promise((resolve, reject) => {
-    setTimeout(function () {
+    setTimeout( () => {
       console.log("Bla bla bla bla...");
       resolve(my_name);
       // reject("REJECTED");
@@ -19,7 +19,7 @@ function speak(my_name) {
 
 function goodbyes(my_name) {
   return new Promise((resolve, reject) => {
-    setTimeout(function () {
+    setTimeout( () => {
       console.log("Goodbye", my_name);
       resolve();
     }, 1000);
@@ -36,7 +36,6 @@ greetings("Nicolas")
   .then(goodbyes)
   .then(() => {
     console.log("Process terminated.");
-
   })
   .catch(error => {
     console.error("Critical error: ");

@@ -1,5 +1,5 @@
 function greetings(my_name, myCallback) {
-    setTimeout(function () {
+    setTimeout( () => {
         console.log('Hi, '+ my_name);
         myCallback(my_name);
     }, 1500);
@@ -7,14 +7,14 @@ function greetings(my_name, myCallback) {
         
 
 function speak(callbackSpeak) {
-    setTimeout(function() {
+    setTimeout(() => {
         console.log('Bla bla bla bla...');
         callbackSpeak();
     }, 1000);
 }
 
 function goodbyes(my_name, anotherCallback) {
-    setTimeout(function() {
+    setTimeout( () => {
         console.log('Goodbye', my_name);
         anotherCallback();
     }, 1000);
@@ -23,7 +23,7 @@ function goodbyes(my_name, anotherCallback) {
 //Recursive functions, calling "conversation" inside of it.
 function conversation(my_name, times, callback) {
     if (times > 0) {
-        speak(function () {
+        speak( () => {
             conversation(my_name, --times, callback);
         })
     } else {
@@ -34,8 +34,8 @@ function conversation(my_name, times, callback) {
 // --
 
 console.log('Initializing process......');
-greetings('Nicolas', function (my_name) {
-    conversation(my_name, 5, function() {
+greetings('Nicolas',  (my_name) => {
+    conversation(my_name, 3, () => {
         console.log('Process terminated');
     });
 });

@@ -1,20 +1,20 @@
-function greetings(first_name, myCallback) {
-  setTimeout(function () {
+function greetings(first_name, cb) {
+  setTimeout( () => {
     console.log("Hi " + first_name);
-    myCallback(first_name);
+    cb(first_name);
   }, 1000);
 }
 
-function goodbyes(first_name, anotherCallback) {
-  setTimeout(function () {
+function goodbyes(first_name, cb) {
+  setTimeout( () => {
     console.log("Goodbye", first_name);
-    anotherCallback();
+    cb();
   }, 1000);
 }
 
 console.log("Initializing process...");
-greetings("Nicolas", function (first_name) {
-  goodbyes(first_name, function () {
+greetings("Nicolas", (first_name) => {
+  goodbyes(first_name, () => {
     console.log("Terminating process...");
   });
 });

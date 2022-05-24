@@ -2,7 +2,7 @@ console.log("Hola mundo");
 
 let i = 0;
 
-setInterval(function () {
+setInterval( () => {
   console.log(i);
   i++;
 

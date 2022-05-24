@@ -1,6 +1,6 @@
 async function greetings(my_name) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(function () {
+  return new Promise( (resolve, reject) => {
+    setTimeout( () => {
       console.log("Hi, " + my_name);
       resolve(my_name);
     }, 1500);
@@ -9,7 +9,7 @@ async function greetings(my_name) {
 
 async function speak(my_name) {
   return new Promise((resolve, reject) => {
-    setTimeout(function () {
+    setTimeout( () => {
       console.log("Bla bla bla bla...");
       resolve(my_name);
       // resolve("REJECTED");
@@ -19,7 +19,7 @@ async function speak(my_name) {
 
 async function goodbyes(my_name) {
   return new Promise((resolve, reject) => {
-    setTimeout(function () {
+    setTimeout( () => {
       console.log("Goodbye", my_name);
       resolve();
     }, 1000);
