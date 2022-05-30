@@ -2,12 +2,12 @@ const faker = require("faker");
 
 class UsersService {
 
-  constructor(){
+  constructor() {
     this.users = [];
     this.generate();
   }
 
-  generate() {
+  async generate() {
     const limit = 20;
     for (let index = 0; index < limit; index++) {
       this.users.push({
@@ -21,7 +21,7 @@ class UsersService {
     }
   }
 
-  create(data) {
+  async create(data) {
     const newUser = {
       id: faker.datatype.uuid(),
       ...data
@@ -31,30 +31,34 @@ class UsersService {
   }
 
   find() {
-    return this.users;
+    return new Promise((resolve, reject) => {
+      setTimeout(() =>{
+        resolve(this.users);
+      }, 5000);
+    })
   }
 
   findOne(id) {
     return this.users.find(user => user.id === id);
   }
 
-  update(id, changes) {
+  async update(id, changes) {
     const index = this.users.findIndex(user => user.id === id);
     if (index === -1) {
-      throw new Error("Product not found");
+      throw new Error("User not found");
     }
     const user = this.users[index];
-     this.users[index] ={
-    ...user,
-    ...changes
-  };
-   return this.users[index];
+    this.users[index] = {
+      ...user,
+      ...changes
+    };
+    return this.users[index];
   }
 
-  delete(id) {
+  async delete(id) {
     const index = this.users.findIndex(user => user.id === id);
     if (index === -1) {
-      throw new Error("Product not found");
+      throw new Error("User not found");
     }
     this.users.splice(index, 1);
     return { id };

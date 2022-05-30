@@ -17,24 +17,28 @@ class CategoriesService {
     }
   }
 
-  create(data) {
+  async create(data) {
     const newCategory = {
       id: faker.datatype.uuid(),
       ...data
     }
-    this.products.push(newCategory);
+    this.categories.push(newCategory);
     return newCategory;
   }
 
   find() {
-    return this.categories;
-  }
+    return new Promise((resolve, reject) => {
+      setTimeout(() =>{
+        resolve(this.categories);
+      }, 5000);
+  })
+}
 
   findOne(id) {
     return this.categories.find(category => category.id === id);
   }
 
-  update(id, changes) {
+  async update(id, changes) {
     const index = this.categories.findIndex(category => category.id === id);
     if (index === -1) {
       throw new Error("Category not found");
@@ -47,10 +51,10 @@ class CategoriesService {
    return this.categories[index];
   }
 
-  delete(id) {
+  async delete(id) {
     const index = this.categories.findIndex(category => category.id === id);
     if (index === -1) {
-      throw new Error("Product not found");
+      throw new Error("Category not found");
     }
     this.categories.splice(index, 1);
     return { id };
