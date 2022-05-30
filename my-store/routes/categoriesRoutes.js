@@ -1,52 +1,37 @@
-const express = require("express");
-const faker = require("faker");
+const express = require('express');
+const CategoriesService = require("./../services/categoriesServices");
 
 const router = express.Router();
+const service = new CategoriesService();
 
 router.get("/", (req, res) => {
-  const { size } = req.query;
-  const limit = size || 10;
-  const categories = [];
-  for (let i = 0; i < limit; i++) {
-    categories.push({
-      category: faker.commerce.productAdjective()
-    })
-  }
+  const categories = service.find();
   res.json(categories);
 });
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  res.json({
-    id,
-    category: faker.commerce.productAdjective()
-  })
+  const category = service.findOne(id);
+  res.json(category);
 })
 
 router.post("/", (req, res) => {
   const body = req.body;
-  res.json({
-    message: "Created",
-    data: body
-  })
+  const newCategory = service.create(body);
+  res.status(201).json(newCategory);
 });
 
 router.patch("/:id", (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  res.json({
-    message: "Updated",
-    data: body,
-    id,
-  })
+  const category = service.update(id, body);
+  res.json(category);
 });
 
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  res.json({
-    message: "Deleted",
-    id,
-  })
+  const resp = service.delete(id);
+  res.json(resp);
 });
 
 module.exports = router;
