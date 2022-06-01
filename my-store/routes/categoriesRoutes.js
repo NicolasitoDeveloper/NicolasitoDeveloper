@@ -9,11 +9,15 @@ router.get("/", async (req, res) => {
   res.json(categories);
 });
 
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  const category = await service.findOne(id);
-  res.json(category);
-})
+router.get("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const category = await service.findOne(id);
+    res.json(category);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.post("/", async (req, res) => {
   const body = req.body;
@@ -21,16 +25,14 @@ router.post("/", async (req, res) => {
   res.status(201).json(newCategory);
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     const body = req.body;
     const category = await service.update(id, body);
     res.json(category);
   } catch (error) {
-    res.status(404).json({
-      message: error.message
-    });
+    next(error);
   }
 });
 

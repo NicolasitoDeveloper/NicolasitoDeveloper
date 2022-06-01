@@ -1,4 +1,5 @@
 const faker = require("faker");
+const boom = require("@hapi/boom");
 
 class UsersService {
 
@@ -17,6 +18,7 @@ class UsersService {
         avatar: faker.image.imageUrl(),
         city: faker.address.cityName(),
         email: faker.internet.email(),
+        isBlocked: faker.datatype.boolean(),
       })
     }
   }
@@ -26,7 +28,7 @@ class UsersService {
       id: faker.datatype.uuid(),
       ...data
     }
-    this.user.push(newUser);
+    this.users.push(newUser);
     return newUser;
   }
 
@@ -39,7 +41,14 @@ class UsersService {
   }
 
   findOne(id) {
-    return this.users.find(user => user.id === id);
+    const user = this.users.find(user => user.id === id);
+    if (!user) {
+      throw boom.notFound("User not found");
+    }
+    if (user.isBlocked) {
+      throw boom.conflict("User is blocked");
+    }
+    return user;
   }
 
   async update(id, changes) {
@@ -58,7 +67,7 @@ class UsersService {
   async delete(id) {
     const index = this.users.findIndex(user => user.id === id);
     if (index === -1) {
-      throw new Error("User not found");
+      throw boom.notFound("User not found");
     }
     this.users.splice(index, 1);
     return { id };
