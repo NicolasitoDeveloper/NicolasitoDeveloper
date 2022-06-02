@@ -36,7 +36,7 @@ class UsersService {
     return new Promise((resolve, reject) => {
       setTimeout(() =>{
         resolve(this.users);
-      }, 5000);
+      }, 2000);
     })
   }
 
@@ -70,7 +70,7 @@ class UsersService {
       throw boom.notFound("User not found");
     }
     this.users.splice(index, 1);
-    return { id };
+    return { id, message: "Deleted" };
   }
 
 }

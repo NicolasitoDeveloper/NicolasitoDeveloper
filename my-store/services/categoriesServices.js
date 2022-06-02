@@ -32,7 +32,7 @@ class CategoriesService {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.categories);
-      }, 5000);
+      }, 2000);
     })
   }
 
@@ -66,7 +66,7 @@ class CategoriesService {
       throw boom.notFound("Category not found");
     }
     this.categories.splice(index, 1);
-    return { id };
+    return { id, message: "Deleted" };
   }
 }
 

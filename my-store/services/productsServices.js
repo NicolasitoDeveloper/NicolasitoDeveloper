@@ -34,7 +34,7 @@ class ProductsService {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.products);
-      }, 5000);
+      }, 2000);
     })
   }
 
@@ -68,7 +68,7 @@ class ProductsService {
       throw boom.notFound("Product not found");
     }
     this.products.splice(index, 1);
-    return { id };
+    return { id, message: "Deleted" };
   }
 }
 
